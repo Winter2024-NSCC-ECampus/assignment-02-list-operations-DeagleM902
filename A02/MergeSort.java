@@ -22,7 +22,7 @@ public class MergeSort {
     }
 
     //Merge the divided lists by 
-    private static <T extends Comparable<T>> LinkedList<T> merge(LinkedList<T> list1, LinkedList<T> list2) {
+    public static <T extends Comparable<T>> LinkedList<T> merge(LinkedList<T> list1, LinkedList<T> list2) {
         Node<T> dummy = new Node<>(null);
         Node<T> current = dummy;
 

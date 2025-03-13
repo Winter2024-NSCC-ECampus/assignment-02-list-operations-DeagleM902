@@ -26,5 +26,30 @@ public class Main {
         MergeSort.sort(unsortedList);
         System.out.println("After sorting:");
         unsortedList.printList();
+
+        LinkedList<Integer> listA = new LinkedList<>();
+        LinkedList<Integer> listB = new LinkedList<>();
+
+        listA.append(2);
+        listA.append(5);
+        listA.append(7);
+        listA.append(1);
+
+        listB.append(4);
+        listB.append(6);
+        listB.append(3);
+
+        listA.printList();
+        MergeSort.sort(listA);
+        listA.printList();
+
+
+        listB.printList();
+        MergeSort.sort(listB);
+        listB.printList();
+
+        MergeSort.merge(listA, listB);
+
+        listA.printList();
     }
 }
