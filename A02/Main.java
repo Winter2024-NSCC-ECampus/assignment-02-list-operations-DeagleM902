@@ -10,45 +10,21 @@ package A02;
 // find(value) returns the index of the node containing value, or nil if not found.
 public class Main {
     public static void main(String[] args) {
-        LinkedList<Integer> list = new LinkedList<>();
+        LinkedList<Integer> unsortedList = new LinkedList<>();
+        unsortedList.append(5);
+        unsortedList.append(1);
+        unsortedList.append(9);
+        unsortedList.append(3);
+        unsortedList.append(2);
+        unsortedList.append(6);
+        unsortedList.append(7);
+        unsortedList.append(4);
+        unsortedList.append(8);
+        System.out.println("Before sorting:");
+        unsortedList.printList();
 
-        list.append(3);
-        list.append(52);
-        list.append(9);
-        list.printList();
-
-        //Prepend
-        list.prepend(5);
-        list.printList();
-
-        //Check size
-        System.out.println("List size: " + list.size());
-
-        //Show Head and Tail values
-        System.out.println("Head value: " + list.head().value);
-        System.out.println("Tail value: " + list.tail().value);
-
-        //Retrieve an element at #
-        System.out.println("Element at index 2: " + list.at(2).value);
-
-        //Check if the list contains a value
-        System.out.println("List contains 52? " + list.contains(52));
-        System.out.println("List contains 42? " + list.contains(42));
-
-        //Find values (not found = null)
-        System.out.println("Location of 52: " + list.find(52));
-        System.out.println("Location of 42: " + list.find(42));
-
-        //Pop element
-        list.pop();
-        list.printList();
-
-        LinkedList<String> stringList = new LinkedList<>();
-
-        stringList.append("test1");
-        stringList.append("values");
-        stringList.append("added");
-
-        stringList.printList();
+        MergeSort.sort(unsortedList);
+        System.out.println("After sorting:");
+        unsortedList.printList();
     }
 }

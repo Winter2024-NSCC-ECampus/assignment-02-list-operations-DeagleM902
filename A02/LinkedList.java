@@ -1,9 +1,9 @@
 package A02;
 
 public class LinkedList<T> {
-    private Node<T> head;
-    private Node<T> tail;
-    private int size;
+    public Node<T> head;
+    public Node<T> tail;
+    public int size;
 
     public LinkedList() {
         head = null;
@@ -144,6 +144,36 @@ public class LinkedList<T> {
             index++;
         }
         return null;
+    }
+
+    //Splits the list into two segments (halves) by stepping through with "slow" and "fast" pointers
+    public LinkedList<T> frontBackSplit() {
+        LinkedList<T> backList = new LinkedList<>();
+        if (head == null) {
+            return backList;
+        }
+        if (head.next == null) {
+            return backList;
+        }
+
+        Node<T> slow = head;
+        Node<T> fast = head.next;
+
+        //Step through until "fast" reaches the end of the list
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        backList.head = slow.next;
+        backList.tail = tail;
+        backList.size = size - (size + 1) / 2;
+
+        tail = slow;
+        tail.next = null;
+        size = (size + 1) / 2;
+
+        return backList;
     }
 
     //Added to print list values
