@@ -1,4 +1,4 @@
-package A01;
+package A02;
 public class Node<T> {
     public T value;
     public Node<T> next;

@@ -1,4 +1,4 @@
-package A01;
+package A02;
 
 public class LinkedList<T> {
     private Node<T> head;
@@ -31,6 +31,28 @@ public class LinkedList<T> {
             newNode.next = head;
             head = newNode;
         }
+        size++;
+    }
+
+    //Insert value at given index
+    public void insertAt(int index, T value){
+        if (index < 0 || index > size) {
+            System.out.println("Index out of bounds.");
+            return;
+        }
+        if (index == 0 ){
+            prepend(value); //Use prepend if applicable
+        }
+        if (index == size){
+            append(value); //Use append if applicable
+        }
+        Node<T> newNode = new Node<>(value);
+        Node <T> current = head;
+        for (int i = 0; i < index - 1; i++) {
+            current = current.next;
+        }
+        newNode.next = current.next;
+        current.next = newNode;
         size++;
     }
 
@@ -67,6 +89,36 @@ public class LinkedList<T> {
             Node<T> current = head;
             while (current.next != tail) current = current.next;
             current.next = null;
+            tail = current;
+        }
+        size--;
+    }
+
+    // removes the first element from the list
+    public void deleteFirst(){
+        if (head == null) return;
+        head = head.next;
+        size--;
+        if (size == 0) {
+            tail = null;
+        }
+    }
+
+    public void deleteAt(int index){
+        if (index < 0 || index >= size) {
+            System.out.println("Index out of bounds.");
+            return;
+        }
+        if (index == 0) {
+            deleteFirst();
+            return;
+        }
+        Node<T> current = head;
+        for (int i = 0; i < index - 1; i++) {
+            current = current.next;
+        }
+        current.next = current.next.next;
+        if (index == size - 1) {
             tail = current;
         }
         size--;
