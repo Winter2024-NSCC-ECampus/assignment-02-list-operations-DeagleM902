@@ -14,4 +14,4 @@ The LinkedList class adds methods to insert at the given index, delete the first
 
 MergeSort will subdivide the list recursively, then merge the subdivisions into a sorted list.
 
-Main provides examples of a merge sort, as well as an example of sorting independently, then merging as a list.
+Main provides an example of a merge sort, as well as an example of sorting independently, then merging as a list.
